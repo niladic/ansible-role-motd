@@ -1,0 +1,3 @@
+motd_additional_keys:
+  - key: server
+    value: 120

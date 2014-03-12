@@ -1,0 +1,29 @@
+{{ ansible_distribution }} {{ ansible_distribution_release }}
+    _____                        ____    ____    ____
+   |  ___|  _ __    ___    ___  | __ )  / ___|  |  _ \
+   | |_    | '__|  / _ \  / _ \ |  _ \  \___ \  | | | |    ,     , 
+   |  _|   | |    |  __/ |  __/ | |_) |  ___) | | |_| |  ,(       ).
+ | |_|     |_|     \___|  \___| |____/  |____/  |____/   | \,--_ / |
+ `-------------------------------- the power to serve    /_  _  `  /
+                                                        /-.,-.`    \
+{{ '{:>69}'.format('Welcome to FreeBSD ' + ansible_distribution_release + '  | |   \\     \\') }}
+          ._____________________________________________\O|O  |     |__.
+          |                                           (___)`--'_    /  |
+          |   THIS SYSTEM IS RESTRICTED TO             `.______/`  /   |
+          |   AUTHORIZED USERS FOR AUTHORIZED            `.__,   ,/    |
+          |   USE ONLY, CHEERS.                             /    \     |
+          |____________________________________<----.______/ __   \____|
+                                               <----|===)))==) \) /=====
+                                               <----'  `--' `.__,' |   _
+                                                          |        |  / \
+                                                           \ _     /`-' \/
+                                                       ,----` \   /        
+                                                       \_,-----'  \         
+                                                         \________/
+hostname   : {{ ansible_fqdn }}
+{% for kv in motd_additional_keys %}
+{{ '{:<10}'.format(kv.key) }} : {{ kv.value }}
+{% endfor %}
+{% for processor in ansible_processor %}
+{% if loop.first %}{{ processor }}{% endif %}
+{% endfor %}
